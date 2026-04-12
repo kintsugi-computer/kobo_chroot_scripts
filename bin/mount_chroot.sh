@@ -41,7 +41,7 @@ mount -v --bind /var/log "${koboroot}/var/log"
 mount -v --bind /var/run "${koboroot}/var/run"
 mount -v --bind /mnt/onboard "${koboroot}/mnt/onboard"
 
-if [ ! -e ${rootfs}/etc/resolv.conf ]; then
-    ln -s /mnt/koboroot/etc/resolv.conf ${rootfs}/etc/resolv.conf
+if [ ! -L "${rootfs}/etc/resolv.conf" -a ! -e "${rootfs}/etc/resolv.conf" ]; then
+    ln -s /mnt/koboroot/etc/resolv.conf "${rootfs}/etc/resolv.conf"
 fi
 
