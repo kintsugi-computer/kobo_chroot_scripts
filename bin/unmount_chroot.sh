@@ -4,8 +4,8 @@ rootfs="/mnt/chroot/rootfs"
 koboroot="${rootfs}/mnt/koboroot"
 
 function unmount_directory {
-        mnt_pt="${1}"
-        mountpoint "${mnt_pt}" && umount "${mnt_pt}"
+    mnt_pt="${1}"
+    mountpoint "${mnt_pt}" && echo "Unmounting ${mnt_pt}" && umount "${mnt_pt}"
 }
 
 unmount_directory "${koboroot}/mnt/onboard"
