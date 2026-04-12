@@ -1,5 +1,8 @@
 name: Build and publish release
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:
@@ -21,3 +24,5 @@ jobs:
         if: github.ref_type == 'tag'
         with:
           files: kobo_chroot_*.tgz
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
